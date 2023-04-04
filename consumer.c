@@ -45,15 +45,15 @@ int main()
 	while(loop--){
 		sem_wait(fill);
 
-    // Sleeps to let the producer produce an item
-    sleep(rand() % 2 + 1);
+	// Sleeps to let the producer produce an item
+	sleep(rand() % 2 + 1);
 	
-    // Waits until there is an item to consume
-    sem_wait(mutex);
-    (* items)--;
-    sem_post(mutex);
-    printf("Consumer: I have consumed an item\n");
-    sem_post(available);
+	// Waits until there is an item to consume
+	sem_wait(mutex);
+	(* items)--;
+	sem_post(mutex);
+	printf("Consumer: I have consumed an item\n");
+	sem_post(available);
 	}
 	
 	// Removes the semaphores
